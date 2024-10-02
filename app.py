@@ -6,12 +6,13 @@ import tempfile
 import re
 
 # Step 1: Set up Google Cloud credentials
-import streamlit as st
-import os
+# Write the Google Translate API credentials from Streamlit Secrets to a temporary file
+with tempfile.NamedTemporaryFile(delete=False, suffix=".json") as temp_json_file:
+    temp_json_file.write(st.secrets["GOOGLE_APPLICATION_CREDENTIALS"].encode("utf-8"))
+    temp_json_file_path = temp_json_file.name
 
-# Use the Google Translate API credentials from Streamlit Secrets
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = st.secrets["GOOGLE_APPLICATION_CREDENTIALS"]
-
+# Set the environment variable to point to the temporary credentials file
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = temp_json_file_path
 
 # Initialize the Google Translate client
 translate_client = translate.Client()
@@ -84,4 +85,3 @@ if uploaded_file is not None:
                 file_name="translated_file.csv",
                 mime="text/csv"
             )
-
