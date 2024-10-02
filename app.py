@@ -36,7 +36,7 @@ def translate_text(text, target_language):
     return text  # Return original if empty or not a valid string
 
 # Streamlit app structure
-st.title("CSV Translator with Google Translate API (Skipping Curly Bracketed Content)")
+st.title("CSV Translator with Google Translate API")
 
 # Step 2: File upload
 uploaded_file = st.file_uploader("Upload your CSV file", type="csv")
