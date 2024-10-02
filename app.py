@@ -6,7 +6,12 @@ import tempfile
 import re
 
 # Step 1: Set up Google Cloud credentials
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/ferna_51l1kw2/Downloads/disco-setting-437410-r7-0ddb495eb314.json"
+import streamlit as st
+import os
+
+# Use the Google Translate API credentials from Streamlit Secrets
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = st.secrets["GOOGLE_APPLICATION_CREDENTIALS"]
+
 
 # Initialize the Google Translate client
 translate_client = translate.Client()
