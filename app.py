@@ -50,7 +50,7 @@ if uploaded_file is not None:
     # Step 3: Select target language
     target_language = st.selectbox(
         "Select the target language for translation",
-        ["es", "fr", "de", "it", "pt", "pt-br", ],  # Example: Spanish, French, German, etc.
+        ["en", "es", "fr", "de", "it", "pt", "pt-br", ],  # Example: Spanish, French, German, etc.
         index=0
     )
 
